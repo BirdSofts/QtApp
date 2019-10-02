@@ -2,7 +2,7 @@
 /// <summary>
 /// 
 /// </summary>
-/// <created>ʆϒʅ,01.10.2019</created>
+/// <created>ʆϒʅ,03.10.2019</created>
 /// <changed>ʆϒʅ,03.10.2019</changed>
 // *******************************************************************************************
 
@@ -12,17 +12,17 @@
 #include "../libMainWindow/mainwindow.h"
 
 
-TEST ( QtApp, ApplicationStyle )
+int main ( int argc, char* argv [] )
 {
+
+  //Application app ( argc, argv );
   //MainWindow w;
+  //w.show ();
 
-  AppStyle appStyle;
-  appStyle.set ( 1 );
-  EXPECT_TRUE ( appStyle.getLoaded () );
-}
+  //return app.getApplication ()->exec ();
 
-TEST ( QtApp, SuccessCase )
-{
-  EXPECT_EQ ( 1, 1 );
-  EXPECT_TRUE ( !false );
+  //testing::InitGoogleTest ( &argc, argv );
+  //int ret = RUN_ALL_TESTS ();
+  //return ret;
+
 }

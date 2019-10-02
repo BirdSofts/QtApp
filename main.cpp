@@ -7,8 +7,6 @@
 // *******************************************************************************************
 
 
-#include <qapplication.h>
-
 #include "libMainWindow/mainwindow.h"
 
 

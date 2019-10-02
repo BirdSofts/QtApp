@@ -10,13 +10,7 @@
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "variables": [
-        {
-          "name": "UNITTEST_LIBRARY",
-          "value": "$$(VCInstallDir)/Auxiliary/VS/UnitTest/lib/x64/Microsoft.VisualStudio.TestTools.CppUnitTestFramework.lib",
-          "type": "FILEPATH"
-        }
-      ],
+      "variables": [],
       "intelliSenseMode": "windows-msvc-x64"
     }
   ]
