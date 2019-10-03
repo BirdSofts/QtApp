@@ -3,7 +3,7 @@
 #/ 
 #/ </summary>
 #/ <created>ʆϒʅ,02.10.2019</created>
-#/ <changed>ʆϒʅ,02.10.2019</changed>
+#/ <changed>ʆϒʅ,03.10.2019</changed>
 # *******************************************************************************************
 
 
@@ -43,5 +43,6 @@ add_library(${TARGET_NAME} ${SOURCE_FILES})
 
 target_link_libraries(${TARGET_NAME}
   PUBLIC libStyle
+  PUBLIC libScreenshot
   PUBLIC Qt5::Widgets
   )

@@ -6,17 +6,20 @@
 /// <changed>ʆϒʅ,03.10.2019</changed>
 // *******************************************************************************************
 
+#ifndef GTESTSCLASS_H
+#define GTESTSCLASS_H
+
 
 #include <gtest/gtest.h>
 #include "../libStyle/style.h"
 #include "../libMainWindow/mainwindow.h"
 
 
-int main ( int argc, char* argv [] )
+class QtAppTest : public testing::Test
 {
 
-  testing::InitGoogleTest ( &argc, argv );
-  int ret = RUN_ALL_TESTS ();
-  return ret;
 
-}
+};
+
+
+#endif // !GTESTSCLASS_H

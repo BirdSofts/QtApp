@@ -51,6 +51,7 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_subdirectory(libStyle)
 add_subdirectory(libMainWindow)
+add_subdirectory(libScreenshot)
 
 if(MSVC)
   add_subdirectory(gtests)
@@ -83,6 +84,7 @@ endif(WIN32)
 target_link_libraries(${TARGET_NAME}
   PUBLIC Qt5::Widgets
   PUBLIC libStyle
+  PUBLIC libScreenshot
   PUBLIC libMainWindow
   )
 

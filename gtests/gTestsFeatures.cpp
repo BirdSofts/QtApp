@@ -12,16 +12,28 @@
 #include "../libMainWindow/mainwindow.h"
 
 
-TEST ( QtApp, ApplicationStyle )
+TEST ( QtApp, Application_RunInWhole )
 {
-  //MainWindow w;
 
+  int argc { 0 };
+  char** argv { 0 };
+  Application app ( argc, argv );
+
+  MainWindow w;
+  w.show ();
+
+  app.getApplication ()->exec ();
+
+}
+
+TEST ( QtApp, libStyle_Instantiation )
+{
   AppStyle appStyle;
   appStyle.set ( 1 );
   EXPECT_TRUE ( appStyle.getLoaded () );
 }
 
-TEST ( QtApp, SuccessCase )
+TEST ( QtApp, Test_SuccessCase )
 {
   EXPECT_EQ ( 1, 1 );
   EXPECT_TRUE ( !false );

@@ -3,7 +3,7 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,01.10.2019</created>
-/// <changed>ʆϒʅ,02.10.2019</changed>
+/// <changed>ʆϒʅ,03.10.2019</changed>
 // *******************************************************************************************
 
 #ifndef MAINWINDOW_H
@@ -17,6 +17,7 @@
 #include <qboxlayout.h>
 
 #include "../libStyle/style.h"
+#include "../libScreenShot/screenshot.h"
 
 
 //class MainWindow;
@@ -51,12 +52,16 @@ private:
   // most of which display the action's path in the central main window widget.
 private slots:
   void themeOne ( void ); // first theme
+  void screenShot ( void );
 
 private:
   QMenu* menuFile; // menu widget
+  QAction* actionScreenShot; // abstract user interface action, insertable into widgets
   QMenu* menuView;
   QAction* actionTheme;
   //QActionGroup* alignmentGroup; // to group the actions
+
+  ScreenShot* windowScreenShot; // screen shot window wrapper
 
   void createActions ( void ); // main window menu actions creator
   void createMenus ( void ); // main window menu creator
@@ -68,4 +73,4 @@ public:
 };
 
 
-#endif // MAINWINDOW_H
+#endif // !MAINWINDOW_H

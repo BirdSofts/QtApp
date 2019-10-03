@@ -45,4 +45,4 @@ public:
 };
 
 
-#endif // STYLE_H
+#endif // !STYLE_H

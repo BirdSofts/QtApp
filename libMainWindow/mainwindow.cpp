@@ -3,7 +3,7 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,01.10.2019</created>
-/// <changed>ʆϒʅ,02.10.2019</changed>
+/// <changed>ʆϒʅ,03.10.2019</changed>
 // *******************************************************************************************
 
 
@@ -25,7 +25,7 @@ QApplication* const Application::getApplication ( void )
 
 
 MainWindow::MainWindow ()
-  : appStyle ( nullptr )
+  : appStyle ( nullptr ), windowScreenShot ( nullptr )
 {
   try
   {
@@ -73,6 +73,9 @@ MainWindow::MainWindow ()
 
 MainWindow::~MainWindow ()
 {
+  if (windowScreenShot)
+    delete windowScreenShot;
+
   if (appStyle)
     delete appStyle;
 }
@@ -92,8 +95,26 @@ void MainWindow::themeOne ( void )
 };
 
 
+void MainWindow::screenShot ( void )
+{
+  if (!windowScreenShot)
+  {
+    windowScreenShot = new ScreenShot ( this->centralWidget (), appStyle );
+    windowScreenShot->move ( QApplication::desktop ()->availableGeometry ( windowScreenShot ).topLeft () + QPoint ( 50, 50 ) );
+    windowScreenShot->show ();
+  } else
+    if (windowScreenShot->getInitialized ())
+    {
+      windowScreenShot->show ();
+    }
+};
+
+
 void MainWindow::createActions ( void )
 {
+  actionScreenShot = new QAction ( tr ( "ScreenShot" ), this );
+  connect ( actionScreenShot, &QAction::triggered, this, &MainWindow::screenShot );
+
   actionTheme = new QAction ( tr ( "Theme" ), this );
   actionTheme->setShortcut ( QKeySequence::AddTab ); // Ctrl+T
   actionTheme->setCheckable ( true );
@@ -105,6 +126,7 @@ void MainWindow::createActions ( void )
 void MainWindow::createMenus ( void )
 {
   menuFile = menuBar ()->addMenu ( tr ( "&File" ) );
+  menuFile->addAction ( actionScreenShot );
 
   menuView = menuBar ()->addMenu ( tr ( "&View" ) );
   menuView->addAction ( actionTheme );
@@ -131,6 +153,11 @@ void MainWindow::setStyle ( unsigned char index )
     this->centralWidget ()->setStyleSheet ( appStyle->theme.form );
     this->menuBar ()->setStyleSheet ( appStyle->theme.menu );
     this->statusBar ()->setStyleSheet ( appStyle->theme.status );
+
+    if (windowScreenShot)
+    {
+      windowScreenShot->updateStyle ();
+    }
   }
 
 };

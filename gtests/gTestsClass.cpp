@@ -7,10 +7,10 @@
 // *******************************************************************************************
 
 
-#include <gtest/gtest.h>
+#include "gTestsClass.h"
 
 
-TEST ( QtApp, FailCase )
+TEST ( QtApp, Test_FailCase )
 {
   EXPECT_EQ ( 1, 2 );
   EXPECT_TRUE ( false );
