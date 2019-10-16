@@ -3,9 +3,8 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,01.10.2019</created>
-/// <changed>ʆϒʅ,02.10.2019</changed>
+/// <changed>ʆϒʅ,16.10.2019</changed>
 // *******************************************************************************************
-
 
 #include "style.h"
 
@@ -22,7 +21,7 @@ AppStyle::AppStyle () :
     setDefaults ();
 
   }
-  catch (const std::exception& ex)
+  catch (const std::exception & ex)
   {
 
   }
@@ -84,15 +83,15 @@ bool AppStyle::load ( void )
               switch (sphere)
               {
                 case enumForm:
-                  theme.form.append ( input.c_str () );
+                  theme.form.append ( input );
                   break;
 
                 case enumMenu:
-                  theme.menu.append ( input.c_str () );
+                  theme.menu.append ( input );
                   break;
 
                 case enumStatusBar:
-                  theme.status.append ( input.c_str () );
+                  theme.status.append ( input );
                   break;
               }
             }
@@ -118,7 +117,7 @@ bool AppStyle::load ( void )
     }
 
   }
-  catch (const std::exception& ex)
+  catch (const std::exception & ex)
   {
     return false;
   }

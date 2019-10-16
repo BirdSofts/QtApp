@@ -3,9 +3,8 @@
 #/ 
 #/ </summary>
 #/ <created>ʆϒʅ,01.10.2019</created>
-#/ <changed>ʆϒʅ,03.10.2019</changed>
+#/ <changed>ʆϒʅ,14.10.2019</changed>
 # *******************************************************************************************
-
 
 cmake_minimum_required(VERSION 3.5)
 
@@ -37,15 +36,6 @@ if(MSVC)
 endif(MSVC)
 
 enable_testing()
-
-if(NOT CMAKE_MODULE_PATH)
-  if(MSVC)
-    set(QT_BINARIES "C:/Qt/5.13.1/msvc2017_64/bin")
-    set(Qt5_DIR "C:/Qt/5.13.1/msvc2017_64/lib/cmake/Qt5")
-  else(MSVC)
-    set(QT_BINARIES "C:/Qt/5.13.1/mingw73_64/bin")
-  endif(MSVC)
-endif()
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
@@ -99,27 +89,6 @@ add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
   ${CMAKE_CURRENT_SOURCE_DIR}/libStyle/theme.css
   $<TARGET_FILE_DIR:${TARGET_NAME}>/gtests
   )
-
-if(MSVC)
-  add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
-    COMMAND cmake -E copy_if_different
-    ${QT_BINARIES}/Qt5Core.dll
-    ${QT_BINARIES}/Qt5Cored.dll
-    ${QT_BINARIES}/Qt5Guid.dll
-    ${QT_BINARIES}/Qt5Widgets.dll
-    ${QT_BINARIES}/Qt5Widgetsd.dll
-    $<TARGET_FILE_DIR:${TARGET_NAME}>
-    )
-  add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
-    COMMAND cmake -E copy_if_different
-    ${QT_BINARIES}/Qt5Core.dll
-    ${QT_BINARIES}/Qt5Cored.dll
-    ${QT_BINARIES}/Qt5Guid.dll
-    ${QT_BINARIES}/Qt5Widgets.dll
-    ${QT_BINARIES}/Qt5Widgetsd.dll
-    $<TARGET_FILE_DIR:${TARGET_NAME}>/gtests
-    )
-endif(MSVC)
 
 if(RELEASE_FLAG)
   if(MINGW)

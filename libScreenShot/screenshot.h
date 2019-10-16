@@ -3,30 +3,16 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,03.10.2019</created>
-/// <changed>ʆϒʅ,03.10.2019</changed>
+/// <changed>ʆϒʅ,15.10.2019</changed>
 // *******************************************************************************************
 
 #ifndef SCREENSHOT_H
 #define SCREENSHOT_H
 
 
-#include <qapplication.h>
-#include <qdesktopwidget.h>
-#include <qwidget.h>
 #include <qlabel.h>
 #include <qpushbutton.h>
-#include <qboxlayout.h>
 #include <qgroupbox.h>
-#include <qpixmap.h>
-#include <qscreen.h>
-#include <qwindow.h>
-#include <qstring.h>
-#include <qstandardpaths.h>
-#include <qdir.h>
-#include <qfiledialog.h>
-#include <qlist.h>
-#include <qimagewriter.h>
-#include <qmessagebox.h>
 
 #include "../libStyle/style.h"
 

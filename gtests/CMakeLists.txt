@@ -3,9 +3,8 @@
 #/ 
 #/ </summary>
 #/ <created>ʆϒʅ,01.10.2019</created>
-#/ <changed>ʆϒʅ,03.10.2019</changed>
+#/ <changed>ʆϒʅ,15.10.2019</changed>
 # *******************************************************************************************
-
 
 cmake_minimum_required(VERSION 3.5)
 
@@ -21,11 +20,11 @@ project(${PROJECT_NAME}
   )
 
 list(APPEND HEADER_FILES
-  gTestsClass.h
+#  gTestsClass.h
   )
 list(APPEND SOURCE_FILES
-  main.cpp
-  gTestsClass.cpp
+#  main.cpp
+#  gTestsClass.cpp
   gTestsFeatures.cpp
   )
 if(WIN32)

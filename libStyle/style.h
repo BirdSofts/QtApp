@@ -3,7 +3,7 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,01.10.2019</created>
-/// <changed>ʆϒʅ,02.10.2019</changed>
+/// <changed>ʆϒʅ,16.10.2019</changed>
 // *******************************************************************************************
 
 #ifndef STYLE_H
@@ -14,15 +14,14 @@
 #include <exception>
 #include <fstream>
 #include <sstream>
-#include <qstring.h>
 
 
 enum Sphare { enumForm = 0, enumMenu, enumStatusBar };
 struct Style
 {
-  QString form;
-  QString menu;
-  QString status;
+  std::string form;
+  std::string menu;
+  std::string status;
 };
 
 

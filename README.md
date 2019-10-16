@@ -1,5 +1,5 @@
 # Introduction
-The project is a serious vision to combine different aspects of cross-platform development (Currently: C++, Qt, CMake, GTest, and more) all together in best practice. The foreseen outcome was a perfect platform to be used as libraries provided for other similar softwares. The exact documentation and clean-code programming was a constant matter in mind.
+The project is a serious vision to combine different aspects of cross-platform development (Currently: C++, Qt, CMake, GTest, and more) all together in best practice. The foreseen outcome was a perfect platform to be used as libraries provided for other similar softwares. The exact documentation and clean-code programming is going to be a constant matter in mind.
 
 <table>
 <tr>
@@ -27,7 +27,6 @@ The project is a serious vision to combine different aspects of cross-platform d
 
 # Getting Started
 1.	Installation process:
-<br>
 under compilation! :)
 Both Visual Studio and Qt Creator IDEs have been tested while developing.
 
@@ -42,11 +41,9 @@ Both Visual Studio and Qt Creator IDEs have been tested while developing.
 </table>
 
 3.	Latest releases:
-<br>
 Still no release, just coding and debugging
 
 4.	API references:
-<br>
 Look at the below provided references
 
 # Build and Test

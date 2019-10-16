@@ -3,9 +3,20 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,03.10.2019</created>
-/// <changed>ʆϒʅ,03.10.2019</changed>
+/// <changed>ʆϒʅ,16.10.2019</changed>
 // *******************************************************************************************
 
+#include <qapplication.h>
+#include <qdesktopwidget.h>
+#include <qboxlayout.h>
+#include <qscreen.h>
+#include <qwindow.h>
+#include <qstandardpaths.h>
+#include <qdir.h>
+#include <qfiledialog.h>
+#include <qlist.h>
+#include <qimagewriter.h>
+#include <qmessagebox.h>
 
 #include "screenshot.h"
 
@@ -48,8 +59,8 @@ ScreenShot::ScreenShot ( QWidget* mainWindow, AppStyle* styleObj )
   setMinimumSize ( 240, 160 );
   resize ( 240, 160 );
 
-  this->setStyleSheet ( appStyle->theme.form );
-  this->optionsGroupBox->setStyleSheet ( appStyle->theme.menu );
+  this->setStyleSheet ( appStyle->theme.form.c_str () );
+  this->optionsGroupBox->setStyleSheet ( appStyle->theme.menu.c_str () );
 
   initialized = true;
 
@@ -128,7 +139,7 @@ void ScreenShot::saveScrShot ( void )
 void ScreenShot::shootScrShot ( void )
 {
   QScreen* screen = QGuiApplication::primaryScreen ();
-  if (const QWindow * window = windowHandle ())
+  if (const QWindow* window = windowHandle ())
   {
     screen = window->screen ();
   }
@@ -144,6 +155,6 @@ void ScreenShot::shootScrShot ( void )
 
 void ScreenShot::updateStyle ( void )
 {
-  this->setStyleSheet ( appStyle->theme.form );
-  this->optionsGroupBox->setStyleSheet ( appStyle->theme.menu );
+  this->setStyleSheet ( appStyle->theme.form.c_str () );
+  this->optionsGroupBox->setStyleSheet ( appStyle->theme.menu.c_str () );
 };

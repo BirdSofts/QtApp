@@ -3,9 +3,10 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,01.10.2019</created>
-/// <changed>ʆϒʅ,03.10.2019</changed>
+/// <changed>ʆϒʅ,16.10.2019</changed>
 // *******************************************************************************************
 
+#include <qboxlayout.h>
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
@@ -59,9 +60,9 @@ MainWindow::MainWindow ()
 
     appStyle = new AppStyle;
 
-    this->centralWidget ()->setStyleSheet ( appStyle->theme.form );
-    this->menuBar ()->setStyleSheet ( appStyle->theme.menu );
-    this->statusBar ()->setStyleSheet ( appStyle->theme.status );
+    this->centralWidget ()->setStyleSheet ( appStyle->theme.form.c_str () );
+    this->menuBar ()->setStyleSheet ( appStyle->theme.menu.c_str () );
+    this->statusBar ()->setStyleSheet ( appStyle->theme.status.c_str () );
 
   }
   catch (const std::exception & ex)
@@ -150,9 +151,9 @@ void MainWindow::setStyle ( unsigned char index )
 
   if (appStyle->getLoaded ())
   {
-    this->centralWidget ()->setStyleSheet ( appStyle->theme.form );
-    this->menuBar ()->setStyleSheet ( appStyle->theme.menu );
-    this->statusBar ()->setStyleSheet ( appStyle->theme.status );
+    this->centralWidget ()->setStyleSheet ( appStyle->theme.form.c_str () );
+    this->menuBar ()->setStyleSheet ( appStyle->theme.menu.c_str () );
+    this->statusBar ()->setStyleSheet ( appStyle->theme.status.c_str () );
 
     if (windowScreenShot)
     {
