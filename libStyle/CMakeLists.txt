@@ -3,7 +3,7 @@
 #/ 
 #/ </summary>
 #/ <created>ʆϒʅ,02.10.2019</created>
-#/ <changed>ʆϒʅ,16.10.2019</changed>
+#/ <changed>ʆϒʅ,28.04.2022</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.5)
@@ -15,7 +15,7 @@ set(PROJECT_NAME ${TARGET_NAME})
 project(${PROJECT_NAME}
   VERSION 0.1.0.0
   DESCRIPTION "Qt CSS Style library"
-  HOMEPAGE_URL "https://github.com/BirdSofts/QtApp"
+  HOMEPAGE_URL "https://github.com/s-mehrdad/QtApp"
   LANGUAGES CXX
   )
 
@@ -29,8 +29,17 @@ list(APPEND SOURCE_FILES
   style.cpp
   )
 
+#list(APPEND UI_FILES
+#  theme.css
+#  )
+
 if(WIN32)
   list(APPEND SOURCE_FILES ${HEADER_FILES})
+#  list(APPEND SOURCE_FILES ${HEADER_FILES} ${UI_FILES})
 endif(WIN32)
 
 add_library(${TARGET_NAME} ${SOURCE_FILES})
+
+#install (FILES theme.css
+#  DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
+#  )

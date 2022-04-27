@@ -3,11 +3,11 @@
 /// 
 /// </summary>
 /// <created>ʆϒʅ,03.10.2019</created>
-/// <changed>ʆϒʅ,16.10.2019</changed>
+/// <changed>ʆϒʅ,28.04.2022</changed>
 // *******************************************************************************************
 
 #include <qapplication.h>
-#include <qdesktopwidget.h>
+#include <qwidget.h>
 #include <qboxlayout.h>
 #include <qscreen.h>
 #include <qwindow.h>
@@ -32,7 +32,7 @@ ScreenShot::ScreenShot ( QWidget* mainWindow, AppStyle* styleObj )
   lableScrShot->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Expanding );
   lableScrShot->setAlignment ( Qt::AlignCenter );
 
-  const QRect screenGeo = QApplication::desktop ()->screenGeometry ( this );
+  const QRect screenGeo = QApplication::primaryScreen ()->geometry();
   lableScrShot->setMinimumSize ( screenGeo.width () / 8, screenGeo.height () / 8 );
 
   QVBoxLayout* layoutWindow = new QVBoxLayout ( this );
@@ -83,7 +83,7 @@ void ScreenShot::resizeEvent ( QResizeEvent* event )
 {
   QSize scaledSize = pixmapShot.size ();
   scaledSize.scale ( lableScrShot->size (), Qt::KeepAspectRatio );
-  if (!lableScrShot->pixmap () || scaledSize != lableScrShot->pixmap ()->size ())
+  if (!lableScrShot->pixmap () || scaledSize != lableScrShot->pixmap ().size ())
   {
     updateScrShot ();
   }

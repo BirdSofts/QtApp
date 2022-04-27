@@ -1,34 +1,11 @@
 # Introduction
-The project is a serious vision to combine different aspects of cross-platform development (Currently: C++, Qt, CMake, GTest, and more) all together in best practice. The foreseen outcome was a perfect platform to be used as libraries provided for other similar softwares. The exact documentation and clean-code programming is going to be a constant matter in mind.
+This project is a serious vision to combine different aspects of cross-platform development (Currently: C++, Qt, CMake, GTest, and more) all together in best practice. The foreseen outcome was a foundation to be used as libraries provided for other similar softwares. The exact documentation and clean-code programming is going to be a constant matter in mind.
 
-<table>
-<tr>
-<td><b>Creator's Website:</b></td>
-<td><a href="https://birdpoems.jimdofree.com/">BirdPoems</a></td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td><b>Creator's private repository:</b></td>
-<td><a href="https://dev.azure.com/BirdSofts/">BirdSofts</a></td>
-<td><b>Creator's public repository:</b></td>
-<td><a href="https://github.com/BirdSofts">BirdSofts</a></td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td><b>Creator's Emails:</b></td>
-<td><a href="mailto:s.mehrdad.47@gamil.com">s.mehrdad.47@gamil.com</a></td>
-<td><a href="mailto:s.mehrdad.47@outlook.com">s.mehrdad.47@outlook.com</a></td>
-</tr>
-</table>
 
 # Getting Started
 1.	Installation process:
-under compilation! :)
-Both Visual Studio and Qt Creator IDEs have been tested while developing.
+Can be compiled.
+Both Visual Studio and Qt Creator IDEs have been tested.
 
 2.	Software dependencies:
 <table>
@@ -41,7 +18,7 @@ Both Visual Studio and Qt Creator IDEs have been tested while developing.
 </table>
 
 3.	Latest releases:
-Still no release, just coding and debugging
+Source code itself is released.
 
 4.	API references:
 Look at the below provided references
@@ -49,10 +26,14 @@ Look at the below provided references
 # Build and Test
 If you are a beginner, Qt Creator is your choice, if not you probably know what you are doing.
 
-Compilable using CMake.
-```cmake
-cmake --build build-path
-```
+Compile using CMake.
+
+<table>
+<tr>
+<td><b>Cmake:</b></td>
+<td>cmake --build build-path</td>
+</tr>
+</table>
 
 # Contribute
 I appreciate any contribution from anyone, who sees that the project deserves his precious time.
@@ -80,4 +61,4 @@ I appreciate any contribution from anyone, who sees that the project deserves hi
 </table>
 
 # Copyright
-The literature and all the known and unknown ideas provided within the following learning resource is copyrighted. On the other hand, so far the source code is concerned, most of which is learned and inspired from online references and the addition to them can be used under the licence terms provided with the software itself.
+The literature and all the known and unknown ideas provided within the following learning resource is copyrighted. On the other hand, so far the source code is concerned, most of which is learned and inspired from online references and the addition to them can be used under the license terms provided within the software itself with respect to open source software license provided by Qt company.
