@@ -1,9 +1,12 @@
-﻿# *******************************************************************************************
+﻿
+# *******************************************************************************************
 #/ <summary>
-#/ 
+#/ CMakeLists.txt
+#/ QtApp - libStyle
+#/ created by Mehrdad Solimanimajd on 02.10.2019
 #/ </summary>
-#/ <created>ʆϒʅ,02.10.2019</created>
-#/ <changed>ʆϒʅ,28.04.2022</changed>
+#/ <created>ʆϒʅ, 02.10.2019</created>
+#/ <changed>ʆϒʅ, 16.02.2023</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.5)
@@ -19,7 +22,7 @@ project(${PROJECT_NAME}
   LANGUAGES CXX
   )
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_SOURCE_DIR ON)
 
 list(APPEND HEADER_FILES
   style.h
@@ -29,16 +32,20 @@ list(APPEND SOURCE_FILES
   style.cpp
   )
 
-#list(APPEND UI_FILES
-#  theme.css
-#  )
+list(APPEND UI_FILES
+  theme.css
+  )
 
 if(WIN32)
-  list(APPEND SOURCE_FILES ${HEADER_FILES})
+#  list(APPEND SOURCE_FILES ${HEADER_FILES})
 #  list(APPEND SOURCE_FILES ${HEADER_FILES} ${UI_FILES})
 endif(WIN32)
 
-add_library(${TARGET_NAME} ${SOURCE_FILES})
+add_library(${TARGET_NAME}
+  ${SOURCE_FILES}
+  ${HEADER_FILES}
+  ${UI_FILES}
+)
 
 #install (FILES theme.css
 #  DESTINATION ${CMAKE_CURRENT_BINARY_DIR}

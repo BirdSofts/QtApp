@@ -1,9 +1,12 @@
-﻿# *******************************************************************************************
+﻿
+# *******************************************************************************************
 #/ <summary>
-#/ 
+#/ CMakeLists.txt
+#/ QtApp - libMainWindow
+#/ created by Mehrdad Solimanimajd on 02.10.2019
 #/ </summary>
-#/ <created>ʆϒʅ,02.10.2019</created>
-#/ <changed>ʆϒʅ,28.04.2022</changed>
+#/ <created>ʆϒʅ, 02.10.2019</created>
+#/ <changed>ʆϒʅ, 16.02.2023</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.5)
@@ -17,30 +20,34 @@ project(${PROJECT_NAME}
   DESCRIPTION "Qt MainWindow library"
   HOMEPAGE_URL "https://github.com/s-mehrdad/QtApp"
   LANGUAGES CXX
-  )
+)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_SOURCE_DIR ON)
 
 list(APPEND HEADER_FILES
   mainwindow.h
-  )
+)
 
 list(APPEND SOURCE_FILES
   mainwindow.cpp
-  )
+)
 
 list(APPEND UI_FILES
   mainwindow.ui
-  )
+)
 
 if(WIN32)
-  list(APPEND SOURCE_FILES ${HEADER_FILES} ${UI_FILES})
+  #  list(APPEND SOURCE_FILES ${HEADER_FILES} ${UI_FILES})
 endif(WIN32)
 
-add_library(${TARGET_NAME} ${SOURCE_FILES})
+add_library(${TARGET_NAME}
+  ${SOURCE_FILES}
+  ${HEADER_FILES}
+  ${UI_FILES}
+)
 
 target_link_libraries(${TARGET_NAME}
   PUBLIC libStyle
   PUBLIC libScreenshot
   PUBLIC Qt6::Widgets
-  )
+)
