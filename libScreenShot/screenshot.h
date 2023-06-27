@@ -1,13 +1,13 @@
 ﻿
-// *******************************************************************************************
+// --------------------------------------------------------------------------------
 /// <summary>
 /// screenshot.h
 /// QtApp - libScreenshot
-/// created by Mehrdad Solimanimajd on 03.10.2019
+/// created by Mehrdad Soleimanimajd on 03.10.2019
 /// </summary>
 /// <created>ʆϒʅ, 03.10.2019</created>
-/// <changed>ʆϒʅ, 16.02.2023</changed>
-// *******************************************************************************************
+/// <changed>ʆϒʅ, 27.06.2023</changed>
+// --------------------------------------------------------------------------------
 
 #ifndef SCREENSHOT_H
 #define SCREENSHOT_H
@@ -23,32 +23,32 @@
 class ScreenShot : public QWidget
 {
 
-  Q_OBJECT
+    Q_OBJECT
 private:
 
-  AppStyle* appStyle; // application theme
+    AppStyle* appStyle; // application theme
 
-  QPixmap pixmapShot; // screenshot entity
+    QPixmap pixmapShot; // screenshot entity
 
-  QLabel* lableScrShot; // screenshot form wrapper
-  QGroupBox* optionsGroupBox; // buttons group box
-  QPushButton* buttonSaveScrShot; // button
-  QPushButton* buttonNewScrShot;
+    QLabel* lableScrShot; // screenshot form wrapper
+    QGroupBox* optionsGroupBox; // buttons group box
+    QPushButton* buttonSaveScrShot; // button
+    QPushButton* buttonNewScrShot;
 
-  void resizeEvent ( QResizeEvent* ) override; // resize event handler
-  void updateScrShot ( void ); // screenshot wrapper updater
+    void resizeEvent ( QResizeEvent* ) override; // resize event handler
+    void updateScrShot ( void ); // screenshot wrapper updater
 
-  bool initialized;
+    bool initialized;
 
 private slots:
-  void saveScrShot ( void ); // save screenshot
-  void shootScrShot ( void ); // take screenshot
+    void saveScrShot ( void ); // save screenshot
+    void shootScrShot ( void ); // take screenshot
 
 public:
-  ScreenShot ( QWidget*, AppStyle* );
-  //~ScreenShot ( void );
-  const bool getInitialized ( void );
-  void updateStyle ( void ); // window stype updater
+    ScreenShot ( QWidget*, AppStyle* );
+    //~ScreenShot ( void );
+    const bool getInitialized ( void );
+    void updateStyle ( void ); // window stype updater
 };
 
 

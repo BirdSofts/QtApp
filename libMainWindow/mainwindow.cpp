@@ -1,13 +1,13 @@
 ﻿
-// *******************************************************************************************
+// --------------------------------------------------------------------------------
 /// <summary>
 /// mainwindow.cpp
 /// QtApp - libMainWindow
-/// created by Mehrdad Solimanimajd on 01.10.2019
+/// created by Mehrdad Soleimanimajd on 01.10.2019
 /// </summary>
 /// <created>ʆϒʅ, 01.10.2019</created>
-/// <changed>ʆϒʅ, 16.02.2023</changed>
-// *******************************************************************************************
+/// <changed>ʆϒʅ, 27.06.2023</changed>
+// --------------------------------------------------------------------------------
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
@@ -15,124 +15,124 @@
 
 
 Application::Application ( int argc, char* argv [] )
-  : app ( nullptr )
+    : app ( nullptr )
 {
-  app = new QApplication ( argc, argv );
+    app = new QApplication ( argc, argv );
 };
 
 
 QApplication* const Application::getApplication ( void )
 {
-  return app;
+    return app;
 }
 
 
 MainWindow::MainWindow ()
-  : appStyle ( nullptr ), windowScreenShot ( nullptr )
+    : appStyle ( nullptr ), windowScreenShot ( nullptr )
 {
-  try
-  {
+    try
+    {
 
-    QWidget* widget = new QWidget;
-    setCentralWidget ( widget );
+        QWidget* widget = new QWidget;
+        setCentralWidget ( widget );
 
-    QWidget* menuBar = new QWidget;
-    menuBar->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Expanding );
+        QWidget* menuBar = new QWidget;
+        menuBar->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Expanding );
 
-    QWidget* statusBar = new QWidget;
-    statusBar->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Expanding );
+        QWidget* statusBar = new QWidget;
+        statusBar->setSizePolicy ( QSizePolicy::Expanding, QSizePolicy::Expanding );
 
-    QVBoxLayout* layout = new QVBoxLayout;
-    layout->setContentsMargins ( 2, 2, 2, 2 );
+        QVBoxLayout* layout = new QVBoxLayout;
+        layout->setContentsMargins ( 2, 2, 2, 2 );
 
-    layout->addWidget ( menuBar );
-    layout->addWidget ( statusBar );
-    widget->setLayout ( layout );
+        layout->addWidget ( menuBar );
+        layout->addWidget ( statusBar );
+        widget->setLayout ( layout );
 
-    createActions ();
-    createMenus ();
+        createActions ();
+        createMenus ();
 
-    //QString message { "Menus can be chosen! :)" };
-    //QString message = tr ( "Menus can be chosen! :)" );
-    //statusBar ()->showMessage ( message );
+        //QString message { "Menus can be chosen! :)" };
+        //QString message = tr ( "Menus can be chosen! :)" );
+        //statusBar ()->showMessage ( message );
 
-    setWindowTitle ( tr ( "Qt GUI" ) );
-    setMinimumSize ( 240, 160 );
-    resize ( 480, 320 );
+        setWindowTitle ( tr ( "Qt GUI" ) );
+        setMinimumSize ( 240, 160 );
+        resize ( 480, 320 );
 
-    appStyle = new AppStyle;
+        appStyle = new AppStyle;
 
-    this->centralWidget ()->setStyleSheet ( appStyle->theme.form.c_str () );
-    this->menuBar ()->setStyleSheet ( appStyle->theme.menu.c_str () );
-    this->statusBar ()->setStyleSheet ( appStyle->theme.status.c_str () );
+        this->centralWidget ()->setStyleSheet ( appStyle->theme.form.c_str () );
+        this->menuBar ()->setStyleSheet ( appStyle->theme.menu.c_str () );
+        this->statusBar ()->setStyleSheet ( appStyle->theme.status.c_str () );
 
-  }
-  catch (const std::exception & ex)
-  {
+    }
+    catch (const std::exception & ex)
+    {
 
-  }
+    }
 }
 
 
 MainWindow::~MainWindow ()
 {
-  if (windowScreenShot)
-    delete windowScreenShot;
+    if (windowScreenShot)
+        delete windowScreenShot;
 
-  if (appStyle)
-    delete appStyle;
+    if (appStyle)
+        delete appStyle;
 }
 
 
 void MainWindow::themeOne ( void )
 {
-  if (!actionTheme->isChecked ())
-  {
-    actionTheme->toggled ( false );
-    setStyle ( 0 );
-  } else
-  {
-    actionTheme->toggled ( true );
-    setStyle ( 1 );
-  }
+    if (!actionTheme->isChecked ())
+    {
+        actionTheme->toggled ( false );
+        setStyle ( 0 );
+    } else
+    {
+        actionTheme->toggled ( true );
+        setStyle ( 1 );
+    }
 };
 
 
 void MainWindow::screenShot ( void )
 {
-  if (!windowScreenShot)
-  {
-    windowScreenShot = new ScreenShot ( this->centralWidget (), appStyle );
-    windowScreenShot->move ( QApplication::primaryScreen ()->availableGeometry ().topLeft () + QPoint ( 50, 50 ) );
-    windowScreenShot->show ();
-  } else
-    if (windowScreenShot->getInitialized ())
+    if (!windowScreenShot)
     {
-      windowScreenShot->show ();
-    }
+        windowScreenShot = new ScreenShot ( this->centralWidget (), appStyle );
+        windowScreenShot->move ( QApplication::primaryScreen ()->availableGeometry ().topLeft () + QPoint ( 50, 50 ) );
+        windowScreenShot->show ();
+    } else
+        if (windowScreenShot->getInitialized ())
+        {
+            windowScreenShot->show ();
+        }
 };
 
 
 void MainWindow::createActions ( void )
 {
-  actionScreenShot = new QAction ( tr ( "ScreenShot" ), this );
-  connect ( actionScreenShot, &QAction::triggered, this, &MainWindow::screenShot );
+    actionScreenShot = new QAction ( tr ( "ScreenShot" ), this );
+    connect ( actionScreenShot, &QAction::triggered, this, &MainWindow::screenShot );
 
-  actionTheme = new QAction ( tr ( "Theme" ), this );
-  actionTheme->setShortcut ( QKeySequence::AddTab ); // Ctrl+T
-  actionTheme->setCheckable ( true );
-  actionTheme->setStatusTip ( tr ( "Set the application theme" ) );
-  connect ( actionTheme, &QAction::triggered, this, &MainWindow::themeOne );
+    actionTheme = new QAction ( tr ( "Theme" ), this );
+    actionTheme->setShortcut ( QKeySequence::AddTab ); // Ctrl+T
+    actionTheme->setCheckable ( true );
+    actionTheme->setStatusTip ( tr ( "Set the application theme" ) );
+    connect ( actionTheme, &QAction::triggered, this, &MainWindow::themeOne );
 };
 
 
 void MainWindow::createMenus ( void )
 {
-  menuFile = menuBar ()->addMenu ( tr ( "&File" ) );
-  menuFile->addAction ( actionScreenShot );
+    menuFile = menuBar ()->addMenu ( tr ( "&File" ) );
+    menuFile->addAction ( actionScreenShot );
 
-  menuView = menuBar ()->addMenu ( tr ( "&View" ) );
-  menuView->addAction ( actionTheme );
+    menuView = menuBar ()->addMenu ( tr ( "&View" ) );
+    menuView->addAction ( actionTheme );
 };
 
 
@@ -149,18 +149,18 @@ void MainWindow::createMenus ( void )
 void MainWindow::setStyle ( unsigned char index )
 {
 
-  appStyle->set ( index );
+    appStyle->set ( index );
 
-  if (appStyle->getLoaded ())
-  {
-    this->centralWidget ()->setStyleSheet ( appStyle->theme.form.c_str () );
-    this->menuBar ()->setStyleSheet ( appStyle->theme.menu.c_str () );
-    this->statusBar ()->setStyleSheet ( appStyle->theme.status.c_str () );
-
-    if (windowScreenShot)
+    if (appStyle->getLoaded ())
     {
-      windowScreenShot->updateStyle ();
+        this->centralWidget ()->setStyleSheet ( appStyle->theme.form.c_str () );
+        this->menuBar ()->setStyleSheet ( appStyle->theme.menu.c_str () );
+        this->statusBar ()->setStyleSheet ( appStyle->theme.status.c_str () );
+
+        if (windowScreenShot)
+        {
+            windowScreenShot->updateStyle ();
+        }
     }
-  }
 
 };

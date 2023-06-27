@@ -1,13 +1,13 @@
 ﻿
-// *******************************************************************************************
+// --------------------------------------------------------------------------------
 /// <summary>
 /// mainwindow.h
 /// QtApp - libMainWindow
-/// created by Mehrdad Solimanimajd on 01.10.2019
+/// created by Mehrdad Soleimanimajd on 01.10.2019
 /// </summary>
 /// <created>ʆϒʅ, 01.10.2019</created>
-/// <changed>ʆϒʅ, 28.04.2022</changed>
-// *******************************************************************************************
+/// <changed>ʆϒʅ, 27.06.2023</changed>
+// --------------------------------------------------------------------------------
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
@@ -26,53 +26,53 @@
 //class MainWindow;
 class Application
 {
-  //friend class MainWindow;
+    //friend class MainWindow;
 
 private:
-  QApplication* app;
+    QApplication* app;
 public:
-  Application ( int, char* [] );
-  QApplication* const getApplication ( void );
+    Application ( int, char* [] );
+    QApplication* const getApplication ( void );
 };
 
 
 class MainWindow : public QMainWindow
 {
-  friend class AppStyle;
+    friend class AppStyle;
 
-  Q_OBJECT
+    Q_OBJECT
 private:
 
-  // custom context menu implementation need:
-  // reimplementation is needed to receive the context menu events for the created main window.
-//#ifndef QT_NO_CONTEXTMENU
-//  void contextMenuEvent ( QContextMenuEvent* ) override;
-//#endif // QT_NO_CONTEXTMENU
+    // custom context menu implementation need:
+    // reimplementation is needed to receive the context menu events for the created main window.
+    //#ifndef QT_NO_CONTEXTMENU
+    //  void contextMenuEvent ( QContextMenuEvent* ) override;
+    //#endif // QT_NO_CONTEXTMENU
 
-  AppStyle* appStyle; // application theme
+    AppStyle* appStyle; // application theme
 
-  // private slots: to respond to the user actions on the menu entries,
-  // most of which display the action's path in the central main window widget.
+    // private slots: to respond to the user actions on the menu entries,
+    // most of which display the action's path in the central main window widget.
 private slots:
-  void themeOne ( void ); // first theme
-  void screenShot ( void );
+    void themeOne ( void ); // first theme
+    void screenShot ( void );
 
 private:
-  QMenu* menuFile; // menu widget
-  QAction* actionScreenShot; // abstract user interface action, insertable into widgets
-  QMenu* menuView;
-  QAction* actionTheme;
-  //QActionGroup* alignmentGroup; // to group the actions
+    QMenu* menuFile; // menu widget
+    QAction* actionScreenShot; // abstract user interface action, insertable into widgets
+    QMenu* menuView;
+    QAction* actionTheme;
+    //QActionGroup* alignmentGroup; // to group the actions
 
-  ScreenShot* windowScreenShot; // screen shot window wrapper
+    ScreenShot* windowScreenShot; // screen shot window wrapper
 
-  void createActions ( void ); // main window menu actions creator
-  void createMenus ( void ); // main window menu creator
+    void createActions ( void ); // main window menu actions creator
+    void createMenus ( void ); // main window menu creator
 
 public:
-  MainWindow ();
-  ~MainWindow ( void );
-  void setStyle ( unsigned char ); // set the style
+    MainWindow ();
+    ~MainWindow ( void );
+    void setStyle ( unsigned char ); // set the style
 };
 
 
